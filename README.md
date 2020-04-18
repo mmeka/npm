@@ -11,7 +11,12 @@ npm init --yes   (remember to delete the package.json before running "npm init" 
 
 # Installation of modules
 npm install (-g) (--o) (--save|--save-dev) <module_name>(@<version_number>)     # save will add the dev dependency to the package.json file
-npm i -g browserify gulp gulp-sass (more than one module can be installed at a time)
+npm i -g browserify nodemon (more than one module can be installed at a time)
+
+NOTE: Globally installed modues are found at the location using command "npm root -g".
+
+# Listing modules
+npm list (--depth 0)
 
 # Removing modules
 npm uninstall <module_name> (--save-dev) (removes from node_modules as well as from package.json)
@@ -27,6 +32,37 @@ npm update <module_name>
 https://www.npmjs.com has all the modules
 Lodash (for arrays sorting and looping; setting timeouts and delays)
 Gulp (for minification of JavaScript files; compiling Sass files)
+
+# Starting application
+1) Using Node
+  "main": "index.js",
+   "scripts": {
+     "start": "node index.js"
+   }
+   
+   File name can be index.js or app.js or anything else. Just mention in both places
+   
+   > npm start
+   OR
+   > npm run start
+
+2) Using Node live-server
+  "main": "index.js",
+   "scripts": {
+     "start": "node index.js",
+     "server" :"live-server"
+   }
+   
+   File name can be index.js or app.js or anything else. Just mention in both places
+   
+   > npm run server
+
+# Live server examples
+1) Nodemon (continuously look for any changes in the JS files; restarts the Node server when required; global installation;
+To run, use command "nodemon" from any of the Node project. This is good for Express, Web server)
+2) Install live-server plug-in under Microsoft Visual Studio Code. Use the Live-Server icon on the status bar of the editor.
+3) Install live-server
+npm install live-server -g (loads up localhost with index.html)
 
 # Importing modules
 const _ = require('lodash')  (Here, underscore is converntional for Lodash)
@@ -50,4 +86,5 @@ _.each(numbers,function(number,index){
 });
 
 # Package.json
-Note that version menetioned as "^3.3.0" will resolve dependencies, fetching the latest minor versions or any patches. "~4.17.4" will fetch only the bug fixes aka patches.
+Note that version menetioned as "^3.3.0" will resolve dependencies, fetching the latest minor versions or any patches. "~4.17.4" will fetch only the bug fixes aka patches. "*" isn't recommended for production as it would fetch major versions too.
+
