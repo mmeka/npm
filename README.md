@@ -8,7 +8,6 @@ npm config delete init-author-name
 Initialize the npm project with defaults using the following command
 npm init --yes   (remember to delete the package.json before running "npm init" command)
 
-
 # Installation of modules
 npm install (-g) (--o) (--save|--save-dev) <module_name>(@<version_number>)     # save will add the dev dependency to the package.json file
 npm i -g browserify nodemon (more than one module can be installed at a time)
@@ -65,7 +64,8 @@ To run, use command "nodemon" from any of the Node project. This is good for Exp
 npm install live-server -g (loads up localhost with index.html)
 
 # Importing modules
-const _ = require('lodash')  (Here, underscore is converntional for Lodash)
+1) const _ = require('lodash')  (Here, underscore is converntional for Lodash)
+2) import { $ } from 'jQuery';
 
 
 # Executing JavaScript
@@ -88,3 +88,11 @@ _.each(numbers,function(number,index){
 # Package.json
 Note that version menetioned as "^3.3.0" will resolve dependencies, fetching the latest minor versions or any patches. "~4.17.4" will fetch only the bug fixes aka patches. "*" isn't recommended for production as it would fetch major versions too.
 
+# Publishing modules
+1) Create npm account; verify email.
+2) > npm adduser 
+3) In JS file, have the line added
+  module.exports.<module_name> = <JS_function_name>;
+4) Create GIT repo and commit the code
+5) > npm publish
+6) Search in npmjs.org
